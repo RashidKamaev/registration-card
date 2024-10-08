@@ -9,18 +9,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
-import androidx.compose.material.icons.materialIcon
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -53,7 +48,8 @@ fun AppointmentCard() {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
             )
@@ -64,14 +60,6 @@ fun AppointmentCard() {
                     horizontalArrangement = Arrangement.spacedBy(12.dp)
                 )
                 {
-//                    Row(
-//                        modifier = Modifier
-//                            .height(1.dp)
-//                            .fillMax
-//                            .background(Color.White, shape = RoundedCornerShape(15.dp))
-//                    ) {
-//
-//                    }
                     Image(
                         painter = painterResource(id = R.drawable.medic),
                         contentDescription = null,
@@ -81,7 +69,7 @@ fun AppointmentCard() {
                         contentScale = ContentScale.Fit
                     )
                     Column(
-                        modifier = Modifier
+//                        modifier = Modifier
                     ) {
                         Text(
                             text = "Екатерина Верхова",
@@ -96,13 +84,60 @@ fun AppointmentCard() {
                     }
                 }
                 Icon(
-                    imageVector = Icons.Default.KeyboardArrowRight,
+                    painter = painterResource(id = R.drawable.arrowright),
                     contentDescription = null,
                     modifier = Modifier
                         .size(24.dp),
                     Color.White
 
                 )
+            }
+            Column (
+                modifier = Modifier
+                    .background(Color.White.copy(0.15f))
+                    .height(1.dp)
+                    .fillMaxWidth()
+            )
+            {
+
+            }
+            Row(
+                modifier =  Modifier
+                        .fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+
+
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.calendar2),
+                    contentDescription = null,
+                    modifier = Modifier.size(24.dp)
+                )
+                Text(
+                    text = "Суббота, 7 сент.",
+                    fontSize = 12.sp,
+                    color = (Color.White)
+                )
+            Spacer(modifier = Modifier.height(8.dp))
+                Row(
+                    modifier =  Modifier
+                    .fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+
+                    ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.clock),
+                        contentDescription = null,
+                        modifier = Modifier.size(24.dp)
+                    )
+                    Text(
+                        text = "11:00 - 12:00",
+                        fontSize = 12.sp,
+                        color = (Color.White)
+                    )
+                }
             }
         }
     }
